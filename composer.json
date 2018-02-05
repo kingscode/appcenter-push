@@ -1,5 +1,5 @@
 {
-    "name": "kingscode/php-app-center-push",
+    "name": "kingscode/app-center-push",
     "description": "PHP AppCenter Push client.",
     "type": "library",
     "license": "MIT",
@@ -9,6 +9,11 @@
             "email": "koen@hoeijmakers.me"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "KingsCode\\AppCenter\\Push\\": "src/"
+        }
+    },
     "minimum-stability": "stable",
     "require": {
         "guzzlehttp/guzzle": "^6.0"
