@@ -1,0 +1,14 @@
+{
+    "name": "kingscode/php-app-center-push",
+    "description": "PHP AppCenter Push client.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Koen Hoeijmakers",
+            "email": "koen@hoeijmakers.me"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
