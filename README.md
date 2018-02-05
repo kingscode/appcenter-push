@@ -4,7 +4,7 @@ PHP AppCenter Push client.
 ## Installation
 Require the package.
 ```sh
-composer require kingscode/app-center-push
+composer require kingscode/appcenter-push
 ```
 
 ## Usage
