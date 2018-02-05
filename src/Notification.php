@@ -146,33 +146,29 @@ class Notification
      * @param array $customData
      * @return $this
      */
-    public function setCustomData($customData)
+    public function setCustomData(array $customData)
     {
         $this->customData = $customData;
 
         return $this;
     }
-
+    
     /**
-     * @param array|string $devices
+     * @param array $target
      * @return $this
      */
-    public function setDevices($devices)
+    public function setTarget(array $target)
     {
-        if (!is_array($devices)) {
-            $devices = [$devices];
-        }
-
-        $this->devices = $devices;
-
+        $this->target = $target;
+        
         return $this;
     }
-
+    
     /**
      * @param array $validatables
      * @return Notification
      */
-    public function setValidatables($validatables)
+    public function setValidatables(array $validatables)
     {
         $this->validatables = $validatables;
 
