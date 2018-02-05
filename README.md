@@ -4,7 +4,7 @@ PHP AppCenter Push client.
 ## Installation
 Require the package.
 ```sh
-composer require koenhoeijmakers/laravel-argon2
+composer require kingscode/app-center-push
 ```
 
 ## Usage
