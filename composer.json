@@ -1,5 +1,5 @@
 {
-    "name": "kingscode/app-center-push",
+    "name": "kingscode/appcenter-push",
     "description": "PHP AppCenter Push client.",
     "type": "library",
     "license": "MIT",
