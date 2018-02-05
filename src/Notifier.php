@@ -199,4 +199,15 @@ class Notifier
 
         return $this;
     }
+
+    /**
+     * Make a new Notifier instance.
+     *
+     * @param array $settings
+     * @return static
+     */
+    public static function make(array $settings = [])
+    {
+        return new static(new Client(), $settings);
+    }
 }
