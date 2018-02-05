@@ -16,6 +16,7 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "guzzlehttp/guzzle": "^6.0"
+        "guzzlehttp/guzzle": "^6.0",
+        "php": ">=5.6"
     }
 }
