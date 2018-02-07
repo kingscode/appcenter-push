@@ -2,6 +2,7 @@
 [![Packagist](https://img.shields.io/packagist/v/kingscode/appcenter-push.svg?colorB=brightgreen)](https://packagist.org/packages/kingscode/appcenter-push)
 [![license](https://img.shields.io/github/license/kingscode/appcenter-push.svg?colorB=brightgreen)](https://github.com/kingscode/appcenter-push)
 [![Packagist](https://img.shields.io/packagist/dt/kingscode/appcenter-push.svg?colorB=brightgreen)](https://packagist.org/packages/kingscode/appcenter-push)
+
 PHP AppCenter Push client.
 
 ## Installation
