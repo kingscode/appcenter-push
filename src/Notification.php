@@ -2,8 +2,6 @@
 
 namespace KingsCode\AppCenter\Push;
 
-use KingsCode\AppCenter\Push\Exceptions\PushNotificationException;
-
 class Notification
 {
     /**
@@ -65,6 +63,20 @@ class Notification
      */
     public function toArray()
     {
+        if ($this->isSilent()) {
+            return $this->buildSilentNotification();
+        }
+
+        return $this->buildLoudNotification();
+    }
+
+    /**
+     * Build a loud notification.
+     *
+     * @return array
+     */
+    public function buildLoudNotification()
+    {
         $body = [
             'notification_content' => [
                 'name'  => $this->name,
@@ -82,6 +94,71 @@ class Notification
         }
 
         return $body;
+    }
+
+    /**
+     * Build a silent notification.
+     *
+     * @return array
+     */
+    public function buildSilentNotification()
+    {
+        $body = [
+            'notification_content' => [
+                'name'        => $this->name,
+                'custom_data' => array_merge(['content-available' => 1], $this->customData),
+            ],
+        ];
+
+        if (!empty($this->target)) {
+            $body['notification_target'] = $this->target;
+        }
+
+        return $body;
+    }
+
+    /**
+     * Make the notification silent.
+     *
+     * @return $this
+     */
+    public function silent()
+    {
+        $this->silent = true;
+
+        return $this;
+    }
+
+    /**
+     * Make the notification loud, e.g. not silent.
+     *
+     * @return $this
+     */
+    public function loud()
+    {
+        $this->silent = false;
+
+        return $this;
+    }
+
+    /**
+     * Whether the application is silent.
+     *
+     * @return bool
+     */
+    public function isSilent()
+    {
+        return $this->silent;
+    }
+
+    /**
+     * Whether the application is loud.
+     *
+     * @return bool
+     */
+    public function isLoud()
+    {
+        return $this->silent;
     }
 
     /**
@@ -127,7 +204,7 @@ class Notification
 
         return $this;
     }
-    
+
     /**
      * @param array $target
      * @return $this
@@ -135,7 +212,7 @@ class Notification
     public function setTarget(array $target)
     {
         $this->target = $target;
-        
+
         return $this;
     }
 }
