@@ -42,13 +42,11 @@ class Notification
     protected $target = [];
 
     /**
-     * The items to validate before trying to send a notification.
+     * Whether the notification should be a silent notification.
      *
-     * @var array
+     * @var bool
      */
-    protected $validatables = [
-        'name', 'title', 'body',
-    ];
+    protected $silent = false;
 
     /**
      * Make a new notification.
@@ -67,8 +65,6 @@ class Notification
      */
     public function toArray()
     {
-        $this->validate();
-
         $body = [
             'notification_content' => [
                 'name'  => $this->name,
@@ -86,27 +82,6 @@ class Notification
         }
 
         return $body;
-    }
-
-    /**
-     * Validate the payload.
-     *
-     * @return void
-     * @throws \KingsCode\AppCenter\Push\Exceptions\PushNotificationException
-     */
-    protected function validate()
-    {
-        $missing = [];
-
-        foreach ($this->validatables as $item) {
-            if (!isset($this->{$item})) {
-                $missing[] = $item;
-            }
-        }
-
-        if (!empty($missing)) {
-            throw new PushNotificationException('Payload was incorrect, missing: "' . implode(' & ', $missing) . '"');
-        }
     }
 
     /**
@@ -161,17 +136,6 @@ class Notification
     {
         $this->target = $target;
         
-        return $this;
-    }
-    
-    /**
-     * @param array $validatables
-     * @return Notification
-     */
-    public function setValidatables(array $validatables)
-    {
-        $this->validatables = $validatables;
-
         return $this;
     }
 }
