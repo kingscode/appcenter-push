@@ -106,6 +106,8 @@ class Notification
         $body = [
             'notification_content' => [
                 'name'        => $this->name,
+                'title'       => null,
+                'body'        => null,
                 'custom_data' => array_merge(['content-available' => 1], $this->customData),
             ],
         ];
